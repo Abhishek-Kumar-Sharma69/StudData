@@ -1,0 +1,37 @@
+<%- include ('header.ejs') %>
+    <table>
+        <thead>
+            <% if(datalist.length>0){%>
+                <h2 class="message">List of all the Datas</h2>
+            <th>Name</th>
+            <th>Registration Number</th>
+        </thead>
+        <tbody>
+            
+                
+               <% datalist.forEach(function(element){ %>
+                <tr>
+                <td>
+                <%=element.Name%>
+            </td>
+            <td>
+                <%=element.Registration_Num %>
+               
+            </td>
+            <td>
+                <form action='/submarks' method="post">
+                    <input hidden name="regno" value='<%= element.Registration_Num %>' /> 
+                <button type="submit" class="btn" >Add or Edit item</button>
+                </form>
+                <% }) %>
+            </td>
+        </tr>  
+        </tbody>
+    </table>
+                <%}%>
+                <% if (!(datalist.length > 0)){%>
+                    <h2 class="message">No Data to Display</h2>
+                 <% } %>
+            
+</body>
+</html>

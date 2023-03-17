@@ -1,0 +1,61 @@
+<%- include ('header.ejs') %>
+    
+    <div class="student-list container">
+        <div class="text-bg">
+        <h1 class="Heading">Welcome to StuData</h1>
+        <form action="/" method="post">
+            <div class="srccontainer">
+            <input class="srchinp" type="text" placeholder="Enter the roll No. you want to search" name="roll" required>
+            <button class="btn" type="submit">Search</button>
+            <br>
+            </div>
+        </div>
+            <div class="table-container">
+            <table>
+                <thead class="table-heading">
+
+                    <% if(datalist.length > 0) {%>
+                        <h1>List of All Data</h1>
+                        <th>Name</th>
+                        <th>Registration Number</th>
+                    <% datalist.forEach(function(element){  %>
+                      <%   (element.subNames).forEach(function(sub) {%>
+                            <th> <%=sub%> </th>
+                    <% }) %>
+                <%})%>
+                    <th>Percentage</th>
+                </thead>
+                <tbody>
+                    
+                        
+                       <% datalist.forEach(function(element){ %>
+                        <tr>
+                        <td>
+                        <%=element.Name%>
+                    </td>
+                    <td>
+                        <%=element.Registration_Num %>
+                    </td>
+                        <%   (element.total).forEach(function(sub) {%>
+                            <td><%=sub%></td>
+                            <% }) %>
+                            <% if(element.percentage){%>
+                                <%=element.percentage%>
+                            <%}%>
+                           <% if(!(element.percentage)){ %>
+                                <td>-</td>
+                           <% } %>
+                        </tr>
+                        <% }) }%>
+                        <% if (!(datalist.length > 0)){%>
+                           <h2 class="message">No Data to Display</h2>
+                        <% } %>
+                </tbody>
+            </table>
+        </div>
+        </form>
+        <a href="/add"><button class="btn">Add New Data</button></a>
+
+    </div>
+</body>
+</html>

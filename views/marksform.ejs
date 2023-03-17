@@ -1,0 +1,15 @@
+<%- include ('header.ejs') %>
+    <div class="form-container">
+        
+       <form method="post">
+        <input type="text" value="<%=Reg%>" disabled>
+        <input type="text" value="name" disabled>
+        <% (det.subNames).forEach(function(data){%>
+            <input type="Number" name="Marks" min="0" required>
+         <% }) %>
+        <button type="submit">Complete</button>
+       </form>
+
+    </div>
+</body>
+</html>

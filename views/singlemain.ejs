@@ -1,0 +1,53 @@
+<%- include ('header.ejs') %>
+    <h1>Welcome to StuData</h1>
+    <div class="student-list">
+        <form action="/" method="post">
+            <input type="text" placeholder="Enter the roll No." name="roll" required>
+            <button class="btn" type="submit">Search</button>
+            <br>
+            <table>
+                <thead>
+                    <% if(datalist[0]) {%>
+                    <th>Name</th>
+                    <th>Registration Number</th>
+                    <% datalist.forEach(function(element){  %>
+                        <%if(element){%>
+                            <%   (element.subNames).forEach(function(sub) {%>
+                                <th> <%=sub%> </th>
+                        <% }) %>
+                        <th>Percentage</th>
+                    </thead>
+                    <tbody>
+                            <tr>
+                            <td>
+                            <%=element.Name%>
+                        </td>
+                        <td>
+                            <%=element.Registration_Num %>
+                        </td>
+                            <%   (element.total).forEach(function(sub) {%>
+                                <td><%=sub%></td>
+                                <% }) %>
+                                <% if(element.percentage){%>
+                                    <%=element.percentage%>
+                                <%}%>
+                                <%if(!(element.percentage)){%>
+                                    <td>-</td>
+                               <% } }})%>
+                            </tr>
+                           
+                      
+                        <%}  %>
+                        <% if (!(datalist[0])){%>
+                            <h2 class="message">No Match Found</h2>
+                         <% } %>      
+                </tbody>
+            </table>
+        </form>
+        <a href="/"><button>see all</button></a>
+        <a href="/add"><button>Add New Data</button></a>
+        
+
+    </div>
+</body>
+</html>
