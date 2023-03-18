@@ -1,10 +1,29 @@
-<%- include ('header.ejs') %>
-    <h1>Welcome to StuData</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,600;1,700&family=Piazzolla:ital,opsz,wght@1,8..30,300&family=Quicksand&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,500;1,700&display=swap" rel="stylesheet">
+ 
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <title>StuData</title>
+</head>
+<body>
+    <nav class="navbar">
+        <h4>StuData</h4>
+        <div class="nav-items">
+        <a href="/">Home</a>
+        <a href="/add">Add Data</a>
+        <a href="/subform">Add Subjects</a>
+        <a href="/submarks">Add or Edit Marks</a>
+       </div>
+    </nav>
+<div>
     <div class="student-list">
-        <form action="/" method="post">
-            <input type="text" placeholder="Enter the roll No." name="roll" required>
-            <button class="btn" type="submit">Search</button>
-            <br>
+        
             <table>
                 <thead>
                     <% if(datalist[0]) {%>
@@ -25,13 +44,13 @@
                         <td>
                             <%=element.Registration_Num %>
                         </td>
-                            <%   (element.total).forEach(function(sub) {%>
+                            <%   (element.Marks).forEach(function(sub) {%>
                                 <td><%=sub%></td>
                                 <% }) %>
-                                <% if(element.percentage){%>
-                                    <%=element.percentage%>
+                                <% if(element.Percentage){%>
+                                   <td> <%=element.Percentage%> </td>
                                 <%}%>
-                                <%if(!(element.percentage)){%>
+                                <%if(!(element.Percentage)){%>
                                     <td>-</td>
                                <% } }})%>
                             </tr>
@@ -43,11 +62,11 @@
                          <% } %>      
                 </tbody>
             </table>
-        </form>
-        <a href="/"><button>see all</button></a>
-        <a href="/add"><button>Add New Data</button></a>
+        <a href="/"><button class="btn">see all</button></a>
+        <a href="/add"><button class="btn">Add New Data</button></a>
         
 
+    </div>
     </div>
 </body>
 </html>

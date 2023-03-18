@@ -4,25 +4,16 @@
          <div class="message"><%= message %></div>
             <% if(flag) { %>
          <% (subj.Subjects).forEach( function(element) {%>
-            <table class="sub">
-
-                <td><p><%=element%></p></td>
-            </table>
-             
-              
-        <%})%>
-        <% (subj.total).forEach( function(element) {%>
-            
-            <table class="sub">
-
-                <td><p><%=element%></p></td>
-            </table>
-            
-      <%})}%>
+            <div class="sub">
+                   <p><%=element%></p>
+            </div>
+         
+        <%})}%>
+      
         <form method="post">
             <input type="text" name="subName" placeholder="subject Name" required>
             <input type="number" name="total" placeholder="Enter total marks of Subject" required>
-            <button type="submit">Add</button>
+            <button class="btn" type="submit">Add</button>
         </form>
 
     </div>
