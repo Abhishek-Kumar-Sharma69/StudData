@@ -40,7 +40,12 @@ const Subject=mongoose.model('Subject',SubjectSchema);
  });
  const Student=mongoose.model('Student',studentSchema);
 
- 
+//  Subject.deleteMany({}).then(function(){
+//   console.log("data deleted");
+//  });
+//  Student.deleteMany({}).then(function(){
+//   console.log("data deleted");
+//  });
 
 app.post('/marks/:customlistname',async function(req,res){
   const regno=req.params.customlistname;
@@ -50,22 +55,21 @@ app.post('/marks/:customlistname',async function(req,res){
   (detail.Marks).forEach(function(e){
       sum=sum+e;
   })
-  (detail.total).forEach(function(e){
+const arr=detail.total;
+  arr.forEach(function(e){
     tot=tot+e;
  })
   const p=(sum/tot)*100;
-  await Student.updateOne({Registration_Num:regno},{percentage:p});
-   console.log(detail);
-   res.redirect("/marks/"+regno);
+  
+  await Student.updateOne({Registration_Num:regno},{Percentage:p.toFixed(2)});
+   res.redirect("/find/"+regno);
   })
  app.get('/marks/:customlistname',async function(req,res){
-  
   const regno=req.params.customlistname;
   const sub=await Subject.find({});
   console.log(sub[0].Subjects);
   await Student.updateOne({Registration_Num:regno},{subNames:sub[0].Subjects,total:sub[0].total});
- // const detail=await Student.findOne({Registration_Num:regno});
-  console.log(detail.subNames);
+ const detail=await Student.findOne({Registration_Num:regno});
   res.render('marksform',{Reg:regno,det:detail})
 })
 app.post('/submarks',async function(req,res){

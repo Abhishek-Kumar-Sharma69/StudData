@@ -3,11 +3,14 @@
         
        <form method="post">
         <input type="text" value="<%=Reg%>" disabled>
-        <input type="text" value="name" disabled>
+        <br>
+        <input type="text" value="<%=det.Name%>" disabled>
+        <br>
         <% (det.subNames).forEach(function(data){%>
-            <input type="Number" name="Marks" min="0" required>
+            <label for="<%data%>"><%=data%> Marks</label>
+            <input type="Number" name="Marks" id=<%data%> min="0" required>
          <% }) %>
-        <button type="submit">Complete</button>
+        <button class="btn" type="submit">Complete</button>
        </form>
 
     </div>

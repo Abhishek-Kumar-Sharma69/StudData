@@ -61,6 +61,7 @@ table,th,td{
     display:block;
     text-align: center;
     align-items: center;
+    margin:20px;
 }
 
 .text-bg{
@@ -80,13 +81,52 @@ table,th,td{
 .btn{
     padding:6px;
   margin:auto;
-
 }
-table.sub{
+.sub{
     display: inline;
     border-width: 0%;
+    font-size: 20px;
+    text-align: center;
 }
-
+form {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  } */
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  textarea {
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 80%;
+  }
+  
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
 ::placeholder {
     color: grey;
     opacity: 1;

@@ -3,8 +3,8 @@
         <% if(mesg === "success") {%>
           <div class="message">
           <h2>Data Added</h2>
-          <a href="/"><button>See all Datas Here</button></a>
-          <a href="/add"><button>Add Another Data</button></a>
+          <a href="/"><button class="btn">See all Datas Here</button></a>
+          <a href="/add"><button class="btn">Add Another Data</button></a>
           </div>
           <%} %>
           <% if(mesg === "failure"){%>
@@ -12,7 +12,7 @@
             <h2>Unable to add Data</h2>
             <h5>error ::<%= err %></h5>
           </div>
-            <a href="/"><button>See Data Here</button></a>
+            <a href="/"><button class="btn">See Data Here</button></a>
             <% }%>
     </div>
 </body>

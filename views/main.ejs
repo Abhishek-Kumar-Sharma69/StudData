@@ -18,11 +18,9 @@
                         <h1>List of All Data</h1>
                         <th>Name</th>
                         <th>Registration Number</th>
-                    <% datalist.forEach(function(element){  %>
-                      <%   (element.subNames).forEach(function(sub) {%>
+                      <%   (datalist[0].subNames).forEach(function(sub) {%>
                             <th> <%=sub%> </th>
                     <% }) %>
-                <%})%>
                     <th>Percentage</th>
                 </thead>
                 <tbody>
@@ -36,15 +34,15 @@
                     <td>
                         <%=element.Registration_Num %>
                     </td>
-                        <%   (element.total).forEach(function(sub) {%>
+                        <%   (element.Marks).forEach(function(sub) {%>
                             <td><%=sub%></td>
                             <% }) %>
-                            <% if(element.percentage){%>
-                                <%=element.percentage%>
+                            <% if(element.Percentage){%>
+                               <td> <%=element.Percentage%></td>
                             <%}%>
-                           <% if(!(element.percentage)){ %>
+                           <!-- <% if(!(element.percentage)){ %>
                                 <td>-</td>
-                           <% } %>
+                           <% } %> -->
                         </tr>
                         <% }) }%>
                         <% if (!(datalist.length > 0)){%>
